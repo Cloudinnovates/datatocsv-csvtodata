@@ -1,0 +1,19 @@
+<button (click)="saveDataInCSV('simpleData', dataWithConstructor)">
+  Save simple data array
+</button>
+<br /><br />
+
+<div>Export simple data</div>
+<input
+  #fileUploadSimple
+  [accept]="'.csv'"
+  type="file"
+  class="file-input"
+  (change)="importDataFromCSV($event)"
+  hidden="true"
+/>
+<button (click)="fileUploadSimple.click()">Import from csv</button>
+<br /><br />
+
+<div>data from csv</div>
+<div *ngFor="let item of importedData">{{ item | json }}</div>
